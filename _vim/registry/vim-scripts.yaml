@@ -1,0 +1,348 @@
+addon: alternate
+description: "alternate pairing files (e.g. .c/.h) with short ex-commands"
+disabledby: "let loaded_alternateFile = 1"
+files:
+  - plugin/a.vim
+  - doc/alternate.txt
+---
+addon: whatdomain
+description: "query the meaning of a Top Level Domain"
+disabledby: "let loaded_whatdomain = 1"
+files:
+  - plugin/whatdomain.vim
+---
+addon: bufexplorer
+description: "buffer explorer / browser"
+disabledby: "let loaded_bufexplorer = 1"
+files:
+  - plugin/bufexplorer.vim
+  - doc/bufexplorer.txt
+---
+addon: minibufexplorer
+description: "elegant buffer explorer which takes very little screen space"
+disabledby: "let loaded_minibufexplorer = 1"
+files:
+  - plugin/minibufexpl.vim
+---
+addon: gnupg
+description: "transparent editing of gpg encrypted files"
+disabledby: "let loaded_gnupg = 1"
+files:
+  - plugin/gnupg.vim
+---
+addon: taglist
+description: "source code browser"
+disabledby: "let loaded_taglist = 'no'"
+files:
+  - plugin/taglist.vim
+  - doc/taglist.txt
+---
+addon: calendar
+description: "shows calendar in a vim window"
+disabledby: "let loaded_calendar = 1"
+files:
+  - plugin/calendar.vim
+---
+addon: winmanager
+description: "IDE-like environment with file manager and buffer list"
+disabledby: "let loaded_winmanager = 1"
+files:
+  - plugin/winmanager.vim
+  - doc/winmanager.txt
+  - plugin/winfileexplorer.vim
+  - plugin/wintagexplorer.vim
+---
+addon: align
+description: "commands and maps for aligned text, equations, declarations, ..."
+disabledby: "let loaded_alignPlugin = 1"
+files:
+  - plugin/AlignPlugin.vim
+  - doc/Align.txt
+  - plugin/AlignMaps.vim
+  - plugin/cecutil.vim
+  - autoload/Align.vim
+---
+addon: cvsmenu
+description: "CVS/CVSNT integration"
+disabledby: "let loaded_cvsmenu = 1"
+files:
+  - plugin/cvsmenu.vim
+---
+addon: vcscommand
+description: "CVS/SVN integration (including vimdiff support)"
+disabledby: "let loaded_VCSCommand = 1"
+files:
+  - plugin/vcscommand.vim
+  - doc/vcscommand.txt
+  - plugin/vcscvs.vim
+  - plugin/vcssvn.vim
+  - plugin/vcssvk.vim
+  - syntax/CVSAnnotate.vim
+  - syntax/SVNAnnotate.vim
+  - syntax/SVKAnnotate.vim
+  - syntax/vcscommit.vim
+---
+addon: utl
+description: "Universal Text Linking: URL-based hyperlinking"
+disabledby: "let loaded_utl = 1"
+files:
+  - plugin/utl.vim
+  - doc/utl_ref.txt
+  - doc/utl_usr.txt
+  - plugin/utl_arr.vim
+  - plugin/utl_rc.vim
+  - plugin/utl_scm.vim
+  - plugin/utl_uri.vim
+---
+addon: info
+description: "GNU info documentation browser"
+disabledby: "let loaded_info = 1"
+files:
+  - plugin/info.vim
+---
+addon: enhanced-commentify
+description: "comment lines in a program"
+disabledby: "let DidEnhancedCommentify = 1"
+files:
+  - plugin/EnhancedCommentify.vim
+  - doc/EnhancedCommentify.txt
+---
+addon: xml
+description: "editing helps for XML, HTML, and SGML documents"
+disabledby: "let loaded_xml_ftplugin = 1"
+files:
+  - ftplugin/xml.vim
+---
+addon: po
+description: "easier editing of GNU gettext PO files"
+disabledby: "let loaded_po_ftplugin = 1"
+files:
+  - ftplugin/po.vim
+---
+addon: tetris
+description: "a Tetris game"
+disabledby: "let loaded_tetris = 1"
+files:
+  - plugin/tetris.vim
+---
+addon: sokoban
+description: "a Sokoban game"
+disabledby: "let loaded_VimSokoban = 1"
+files:
+  - plugin/sokoban.vim
+---
+addon: themes
+description: "colors sampler pack: all the color schemes on vim.sf.net"
+disabledby: "let loaded_themes = 1"
+files:
+  - plugin/themes.vim
+  - colors/adam.vim
+  - colors/adaryn.vim
+  - colors/adrian.vim
+  - colors/af.vim
+  - colors/aiseered.vim
+  - colors/aqua.vim
+  - colors/astronaut.vim
+  - colors/asu1dark.vim
+  - colors/automation.vim
+  - colors/autumn.vim
+  - colors/autumn2.vim
+  - colors/autumnleaf.vim
+  - colors/billw.vim
+  - colors/biogoo.vim
+  - colors/black_angus.vim
+  - colors/blackbeauty.vim
+  - colors/blackdust.vim
+  - colors/blacksea.vim
+  - colors/blue.vim
+  - colors/bluegreen.vim
+  - colors/blugrine.vim
+  - colors/bmichaelsen.vim
+  - colors/bog.vim
+  - colors/borland.vim
+  - colors/breeze.vim
+  - colors/brookstream.vim
+  - colors/brown.vim
+  - colors/buttercream.vim
+  - colors/bw.vim
+  - colors/c.vim
+  - colors/camo.vim
+  - colors/candy.vim
+  - colors/caramel.vim
+  - colors/chela_light.vim
+  - colors/chocolateliquor.vim
+  - colors/cleanphp.vim
+  - colors/coffee.vim
+  - colors/colorer.vim
+  - colors/cool.vim
+  - colors/dante.vim
+  - colors/darkblack.vim
+  - colors/darkblue2.vim
+  - colors/darkdot.vim
+  - colors/darkocean.vim
+  - colors/darkslategray.vim
+  - colors/dawn.vim
+  - colors/delek.vim
+  - colors/denim.vim
+  - colors/desert.vim
+  - colors/dusk.vim
+  - colors/earth.vim
+  - colors/edo_sea.vim
+  - colors/emacs.vim
+  - colors/fine_blue.vim
+  - colors/fnaqevan.vim
+  - colors/fog.vim
+  - colors/fruit.vim
+  - colors/gobo.vim
+  - colors/golden.vim
+  - colors/gor.vim
+  - colors/gothic.vim
+  - colors/greyblue.vim
+  - colors/hhazure.vim
+  - colors/hhdblue.vim
+  - colors/hhdcyan.vim
+  - colors/hhdgray.vim
+  - colors/hhdgreen.vim
+  - colors/hhdmagenta.vim
+  - colors/hhdred.vim
+  - colors/hhdyellow.vim
+  - colors/hhorange.vim
+  - colors/hhpink.vim
+  - colors/hhspring.vim
+  - colors/hhteal.vim
+  - colors/hhviolet.vim
+  - colors/ibmedit.vim
+  - colors/inkpot.vim
+  - colors/ironman.vim
+  - colors/jhdark.vim
+  - colors/jhlight.vim
+  - colors/less.vim
+  - colors/lilac.vim
+  - colors/lingodirector.vim
+  - colors/manxome.vim
+  - colors/mars.vim
+  - colors/matrix.vim
+  - colors/metacosm.vim
+  - colors/midnight.vim
+  - colors/midnight2.vim
+  - colors/mod_tcsoft.vim
+  - colors/navajo-night.vim
+  - colors/navajo.vim
+  - colors/nedit.vim
+  - colors/nedit2.vim
+  - colors/neon.vim
+  - colors/night.vim
+  - colors/nightshimmer.vim
+  - colors/nightwish.vim
+  - colors/northsky.vim
+  - colors/nuvola.vim
+  - colors/oceanblack.vim
+  - colors/oceandeep.vim
+  - colors/oceanlight.vim
+  - colors/olive.vim
+  - colors/papayawhip.vim
+  - colors/potts.vim
+  - colors/print_bw.vim
+  - colors/ps_color.vim
+  - colors/putty.vim
+  - colors/python.vim
+  - colors/redblack.vim
+  - colors/relaxedgreen.vim
+  - colors/reloaded.vim
+  - colors/revolutions.vim
+  - colors/robinhood.vim
+  - colors/sand.vim
+  - colors/scite.vim
+  - colors/sea.vim
+  - colors/sean.vim
+  - colors/seashell.vim
+  - colors/sf.vim
+  - colors/simpleandfriendly.vim
+  - colors/taqua.vim
+  - colors/tcsoft.vim
+  - colors/tibet.vim
+  - colors/tolerable.vim
+  - colors/tomatosoup.vim
+  - colors/toothpik.vim
+  - colors/torte.vim
+  - colors/transparent.vim
+  - colors/turbo.vim
+  - colors/umber-green.vim
+  - colors/vc.vim
+  - colors/vcbc.vim
+  - colors/white.vim
+  - colors/whitedust.vim
+  - colors/wintersday.vim
+  - colors/xemacs.vim
+  - colors/xian.vim
+  - colors/zenburn.vim
+---
+addon: closetag
+description: "functions and mappings to close open HTML/XML tags"
+disabledby: "let loaded_closetag = 1"
+files:
+  - macros/closetag.vim
+---
+addon: nerd-commenter
+description: "easy commenting of code for many filetypes"
+disabledby: "let loaded_nerd_comments = 1"
+files:
+  - plugin/NERD_commenter.vim
+  - doc/NERD_commenter.txt
+---
+addon: project
+description: "organize and navigate file projects (like IDE/buffer explorer)"
+disabledby: "let loaded_project = 1"
+files:
+  - plugin/project.vim
+  - doc/project.txt
+---
+addon: vimplate
+description: "template system based on template-toolkit"
+disabledby: "let loaded_vimplate = 1"
+files:
+  - plugin/vimplate.vim
+  - doc/vimplate.txt
+---
+addon: doxygen-toolkit
+description: "simplify writing Doxygen documentation in C/C++"
+disabledby: "let loaded_DoxygenToolkit = 1"
+files:
+  - plugin/DoxygenToolkit.vim
+---
+addon: git-commit
+description: "see your commit diff with git"
+files:
+  - ftplugin/git.vim
+  - syntax/git.vim
+---
+addon: omnicppcomplete
+description: "C++ omni completion with a ctags database"
+disabledby: "let loaded_omnicppcomplete = 1"
+files:
+  - autoload/omni/cpp/complete.vim
+  - after/ftplugin/cpp.vim
+  - after/ftplugin/c.vim
+  - doc/omnicppcomplete.txt
+  - autoload/omni/cpp/includes.vim
+  - autoload/omni/cpp/tokenizer.vim
+  - autoload/omni/cpp/maycomplete.vim
+  - autoload/omni/cpp/namespaces.vim
+  - autoload/omni/cpp/settings.vim
+  - autoload/omni/cpp/utils.vim
+  - autoload/omni/cpp/items.vim
+  - autoload/omni/common/debug.vim
+  - autoload/omni/common/utils.vim
+---
+addon: supertab
+description: "use the tab key for all insert-mode completion"
+disabledby: "let loaded_supertab = 1"
+files:
+  - plugin/supertab.vim
+---
+addon: lbdbq
+description: "expand names to email addresses via lbdb queries"
+disabledby: "let loaded_lbdbq = 1"
+files:
+  - plugin/lbdbq.vim
+---

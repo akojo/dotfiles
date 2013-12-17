@@ -1,0 +1,5 @@
+addon: matchit
+description: extended matching with "%" (e.g. if ... then ... else)
+files:
+  - plugin/matchit.vim
+  - doc/matchit.txt

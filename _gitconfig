@@ -1,0 +1,28 @@
+[user]
+  email = atte.kojo@reaktor.fi
+  name = Atte Kojo
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+  eol = native
+  safecrlf = true
+[alias]
+  ci = commit
+  co = checkout
+  dc = diff --cached
+  d = diff
+  pr = pull --rebase
+  r = rebase
+  root = rev-parse --show-toplevel
+  sci = svn dcommit
+  sr = svn rebase
+  st = status -s
+[push]
+  default = upstream
+[help]
+	autocorrect = 1

@@ -1,0 +1,2 @@
+; vim: ft=scheme
+(require readline/rep)

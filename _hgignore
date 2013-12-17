@@ -1,0 +1,7 @@
+syntax: glob
+tags
+cscope.out
+*.swp
+*.swo
+*.pbxuser
+*.perspective3

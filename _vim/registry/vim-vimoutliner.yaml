@@ -1,0 +1,11 @@
+addon: vimoutliner
+description: Vim as an outline editor
+files:
+  - ftplugin/vo_checkbox.vim
+  - ftplugin/vo_hoist.vim
+  - ftplugin/vo_base.vim
+  - syntax/vo_base.vim
+  - colors/vo_dark.vim
+  - colors/vo_light.vim
+  - doc/vo_readme.txt.gz
+  - ftdetect/vo_base.vim

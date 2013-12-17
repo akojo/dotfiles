@@ -1,0 +1,57 @@
+[extensions]
+color=
+convert=
+extdiff=
+graphlog=
+hgk=
+mq=
+pager=
+rebase=
+record=
+transplant=
+zeroconf=
+churn=
+
+[alias]
+qst = status --rev -2:-1
+
+[ui]
+username = Atte Kojo <atte.kojo@gmail.com>
+ignore = ~/.hgignore
+editor = vim
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -f -d $base $local $output $other +close +close
+vimdiff.premerge = True
+vimdiff.priority = -9
+
+[defaults]
+diff = -p
+qnew = -e
+qimport = -g
+qrefresh = -g
+
+[diff]
+git=1
+
+[extdiff]
+cmd.vimdiff=view
+opts.vimdiff = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
+cmd.gvimdiff=gview
+opts.gvimdiff = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
+
+[color]
+status.modified = magenta
+status.added = green 
+status.removed = red
+status.deleted = cyan
+status.unknown = none
+status.ignored = none
+qseries.applied = green
+qseries.unapplied = none
+qseries.missing = red
+
+[pager]
+pager = less -FRX
+attend = annotate, diff, export, glog, log, qdiff

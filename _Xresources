@@ -1,0 +1,12 @@
+! xterm
+*customization: -color
+XTerm*font: -*-terminus-medium-r-*-*-18-*-*-*-*-*-*-*
+XTerm*background: black
+XTerm*foreground: gray
+XTerm*termName: xterm-256color
+XTerm*utf8: 1
+Rxvt*font: -*-terminus-medium-r-*-*-18-*-*-*-*-*-*-*
+Rxvt*background: black
+Rxvt*foreground: gray
+Rxvt*termName: xterm-256color
+Rxvt*scrollBar: False
