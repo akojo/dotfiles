@@ -14,22 +14,22 @@ checkout = git clone https://github.com/ervandew/supertab.git
 checkout = git clone https://github.com/SirVer/ultisnips.git
 
 [_vim/bundle/vim-classpath]
-checkout = git clone git://github.com/tpope/vim-classpath.git
+checkout = git clone https://github.com/tpope/vim-classpath.git
 
 [_vim/bundle/vim-clojure-static]
-checkout = git clone git://github.com/guns/vim-clojure-static.git
+checkout = git clone https://github.com/guns/vim-clojure-static.git
 
 [_vim/bundle/vim-fireplace]
-checkout = git clone git://github.com/tpope/vim-fireplace
+checkout = git clone https://github.com/tpope/vim-fireplace
 
 [_vim/bundle/vim-fugitive]
-checkout = git clone git://github.com/tpope/vim-fugitive.git
+checkout = git clone https://github.com/tpope/vim-fugitive.git
 
 [_vim/bundle/vim-sensible]
-checkout = git clone git://github.com/tpope/vim-sensible
+checkout = git clone https://github.com/tpope/vim-sensible
 
 [_vim/bundle/vim-sleuth]
-checkout = git clone git://github.com/tpope/vim-sleuth
+checkout = git clone https://github.com/tpope/vim-sleuth
 
 [_vim/bundle/vim-vinegar]
 checkout = git clone https://github.com/tpope/vim-vinegar.git
