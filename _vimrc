@@ -81,6 +81,9 @@ set cscopequickfix=s-,d-,c-,t-,e-,i-
 set grepprg=ag
 command -nargs=+ Grep execute 'silent lgrep! --nocolor --smart-case <args>' | lwindow | redraw!
 
+call pathogen#infect()
+Helptags
+
 " Set useful ctrlp options
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_max_files = 0
@@ -145,7 +148,6 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin on
   filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
@@ -185,9 +187,6 @@ let g:netrw_list_hide='^\..*,.*~$,.*\.swp$'
 let g:use_space_colon=0
 
 let vimclojure#WantNailgun = 1
-
-call pathogen#infect()
-Helptags
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
