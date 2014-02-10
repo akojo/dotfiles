@@ -95,3 +95,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Set sdb environment path
 export PATH=$PATH:/Users/akojo/tizen-sdk/tools
 ## End Tizen SDK configuration
+
+if [ -f $HOME/.bashrc.local ]; then
+  . $HOME/.bashrc.local
+fi
