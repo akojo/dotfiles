@@ -30,6 +30,8 @@ which brew && if [ -r `brew --prefix`/etc/bash_completion ]; then
   source `brew --prefix`/etc/bash_completion
 fi
 
+[ -r /etc/bash_completion.d/git ] && source /etc/bash_completion.d/git
+
 # An improved cd to subdir
 a() {
   dir=`qf -d "$@" | sed 1q`
