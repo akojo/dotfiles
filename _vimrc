@@ -13,18 +13,8 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#incubate()
 Helptags
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
 let g:goog_user_conf = { 'langpair': 'jp|en', 'v_key': 'T', 'charset': 'utf-8' }
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-set runtimepath+=/usr/share/vim/addons
 " Add $HOME/_vim to runtimepath on windows to get proper colorscheme support
 if (has("win32"))
     set runtimepath+=~/_vim
@@ -136,52 +126,38 @@ map Q gq
 " Disable mouse
 set mouse=
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-  colorscheme dante
-endif
+set hlsearch
+colorscheme dante
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+syntax on
+filetype plugin indent on
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+" Put these in an autocmd group, so that we can delete them easily.
+augroup vimrcEx
+au!
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+autocmd BufRead,BufNewFile *.ijs setfiletype j
+autocmd FileType text setlocal spell
+autocmd FileType help setlocal nospell
+autocmd FileType c,cpp,java,objc setlocal shiftwidth=4
+autocmd FileType c,cpp,objc,objcpp nmap <buffer> <Leader>q :call g:ClangUpdateQuickFix()<CR>
 
-  autocmd BufRead,BufNewFile *.ijs setfiletype j
-  autocmd FileType text setlocal spell
-  autocmd FileType help setlocal nospell
-  autocmd FileType c,cpp,java,objc setlocal shiftwidth=4
-  autocmd FileType c,cpp,objc,objcpp nmap <buffer> <Leader>q :call g:ClangUpdateQuickFix()<CR>
+autocmd FileType c,cpp,java runtime cscope_maps.vim
+" Ruby syntax folding is too damn slow
+autocmd FileType ruby setlocal foldmethod=manual
 
-  autocmd FileType c,cpp,java runtime cscope_maps.vim
-  " Ruby syntax folding is too damn slow
-  autocmd FileType ruby setlocal foldmethod=manual
+autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+autocmd FileType omlet call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 
-  autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
-  autocmd FileType omlet call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-else
-  set autoindent		" always set autoindenting on
-endif
+augroup END
 
 " Create the netrw hide list (dot-files, tempfiles and vim swap files)
 let g:netrw_list_hide='^\..*,.*~$,.*\.swp$'
@@ -190,11 +166,6 @@ let g:netrw_list_hide='^\..*,.*~$,.*\.swp$'
 let g:use_space_colon=0
 
 let vimclojure#WantNailgun = 1
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-	 	\ | wincmd p | diffthis
 
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
