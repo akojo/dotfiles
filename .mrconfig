@@ -36,3 +36,6 @@ checkout = git clone https://github.com/tpope/vim-sleuth
 
 [_vim/bundle/vim-vinegar]
 checkout = git clone https://github.com/tpope/vim-vinegar.git
+
+[_vim/bundle/vimoutliner]
+checkout = git clone https://github.com/vimoutliner/vimoutliner.git
