@@ -70,6 +70,12 @@ set tags+=./tags;,./TAGS;,tags;,TAGS;
 set cscopetag
 " Open cscope search results in the quickfix window
 set cscopequickfix=s-,d-,c-,t-,e-,i-
+" Use GNU global
+set cscopeprg=gtags-cscope
+
+if filereadable('GTAGS')
+  cs add GTAGS
+endif
 
 " Use The Silver Searcher as the grep program
 set grepprg=ag
