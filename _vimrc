@@ -9,6 +9,10 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#incubate()
+Helptags
+
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -80,9 +84,6 @@ set cscopequickfix=s-,d-,c-,t-,e-,i-
 " Use The Silver Searcher as the grep program
 set grepprg=ag
 command -nargs=+ Grep execute 'silent lgrep! --nocolor --smart-case <args>' | lwindow | redraw!
-
-call pathogen#infect()
-Helptags
 
 " Set useful ctrlp options
 let g:ctrlp_map = '<Leader>t'
