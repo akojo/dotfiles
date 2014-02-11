@@ -80,6 +80,7 @@ endif
 " Use The Silver Searcher as the grep program
 set grepprg=ag
 command -nargs=+ Grep execute 'silent lgrep! --nocolor --smart-case <args>' | lwindow | redraw!
+nmap <Leader>G :Grep <C-R><C-W><CR>
 
 " Set useful ctrlp options
 let g:ctrlp_map = '<Leader>t'
@@ -117,9 +118,6 @@ let g:SuperTabDefaultCompletionType = "context"
 "
 nmap <Leader>b :CtrlPBufTag<CR>
 nmap <Leader>B :CtrlPBufTagAll<CR>
-
-nmap <Leader>$ :runtime lib/vimsh.vim<cr>
-nmap <Leader>G :Grep <C-R><C-W><CR>
 
 nmap <Leader><Leader> :noh<cr>
 
