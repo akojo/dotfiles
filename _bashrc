@@ -9,6 +9,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+shopt -s histappend
+
 # Search for signs of a version control system in current directory and its
 # parents and print some useful information if such is found
 vc_prompt () {
