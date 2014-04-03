@@ -10,7 +10,7 @@
 "	    for OpenVMS:  sys$login:.vimrc
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 Helptags
 
 let g:goog_user_conf = { 'langpair': 'jp|en', 'v_key': 'T', 'charset': 'utf-8' }
