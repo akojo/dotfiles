@@ -16,6 +16,9 @@ churn=
 [alias]
 config = show
 show = log -pr
+pr = pull --rebase
+r = rebase
+ri = histedit
 
 [ui]
 username = Atte Kojo <atte.kojo@gmail.com>
