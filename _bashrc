@@ -86,7 +86,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-eval `opam config -env`
+which opam >/dev/null 2>&1 && eval `opam config -env`
 
 # Make OCaml REPL usable
 alias ocaml='ledit -h ~/.ocaml_history -x -u ocaml'
