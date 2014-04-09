@@ -14,7 +14,6 @@ zeroconf=
 churn=
 
 [alias]
-qst = status --rev -2:-1
 config = show
 show = log -pr
 
@@ -31,9 +30,6 @@ vimdiff.priority = -9
 
 [defaults]
 diff = -p
-qnew = -e
-qimport = -g
-qrefresh = -g
 
 [diff]
 git=1
