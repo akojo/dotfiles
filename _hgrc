@@ -15,6 +15,8 @@ churn=
 
 [alias]
 qst = status --rev -2:-1
+config = show
+show = log -pr
 
 [ui]
 username = Atte Kojo <atte.kojo@gmail.com>
@@ -55,4 +57,4 @@ qseries.missing = red
 
 [pager]
 pager = less -FRX
-attend = annotate, diff, export, glog, log, qdiff
+attend = annotate, diff, export, glog, log, qdiff, config, show
