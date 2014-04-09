@@ -34,7 +34,7 @@ hi Normal	ctermfg=180 guifg=peachpuff3 guibg=black
 hi Pmenu        ctermbg=darkmagenta ctermfg=white
 hi PmenuSel     ctermbg=magenta ctermfg=white
 hi Question	term=standout ctermfg=green gui=bold guifg=olivedrab1
-hi Search	ctermfg=black ctermbg=yellow guifg=gray10 guibg=darkgoldenrod2
+hi Search	ctermfg=232 ctermbg=yellow guifg=gray10 guibg=darkgoldenrod2
 hi SpecialKey	term=bold ctermfg=darkgray guifg=gray30
 hi SpellBad     ctermbg=088
 hi SpellCap     ctermbg=darkcyan
