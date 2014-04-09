@@ -30,6 +30,7 @@ which brew >/dev/null && if [ -r `brew --prefix`/etc/bash_completion ]; then
 fi
 
 [ -r /etc/bash_completion.d/git ] && source /etc/bash_completion.d/git
+[ -r /etc/bash_completion.d/git-prompt ] && source /etc/bash_completion.d/git-prompt
 
 # An improved cd to subdir
 a() {
