@@ -153,6 +153,7 @@ autocmd FileType c,cpp,java runtime cscope_maps.vim
 " Ruby syntax folding is too damn slow
 autocmd FileType ruby setlocal foldmethod=manual
 
+autocmd FileType c,cpp,objc,objcpp call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 autocmd FileType omlet call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 
