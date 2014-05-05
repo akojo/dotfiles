@@ -12,12 +12,15 @@
   eol = native
   safecrlf = true
 [alias]
+  a = add
+  au = add -u
   ci = commit
   co = checkout
   dc = diff --cached
   d = diff
   pr = pull --rebase
   r = rebase
+  rc = rebase --continue
   root = rev-parse --show-toplevel
   sci = svn dcommit
   sr = svn rebase
@@ -25,4 +28,4 @@
 [push]
   default = upstream
 [help]
-	autocorrect = 1
+  autocorrect = 1
