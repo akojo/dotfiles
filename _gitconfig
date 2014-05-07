@@ -18,8 +18,11 @@
   co = checkout
   dc = diff --cached
   d = diff
+  f = fetch
+  fa = fetch --all
   pr = pull --rebase
   r = rebase
+  ri = rebase --interactive
   rc = rebase --continue
   root = rev-parse --show-toplevel
   sci = svn dcommit
