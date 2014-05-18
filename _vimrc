@@ -108,8 +108,9 @@ let g:clang_jumpto_declaration_key = '<Leader><C-]>'
 let g:clang_jumpto_back_key = '<Leader><C-T>'
 
 " Use merlin for ocaml
-set rtp+=~/.opam/system/share/ocamlmerlin/vim
-set rtp+=~/.opam/system/share/ocamlmerlin/vimbufsync
+let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
+execute "set rtp+=".s:ocamlmerlin."/vim"
+execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
 
 let g:SuperTabMappingTabLiteral = '<C-\>'
 let g:SuperTabDefaultCompletionType = "context"
