@@ -1,0 +1,11 @@
+#!/bin/sh
+
+dblist=~/.location.db.list
+
+if [ ! -r $dblist ]; then
+    exit
+fi
+
+for db in $(cat $dblist); do
+    updatedb -l 0 -U $(dirname $db) -o $db
+done

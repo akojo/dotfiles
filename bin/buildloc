@@ -1,0 +1,14 @@
+#!/bin/sh
+
+db=.location.db
+dblist=~/${db}.list
+
+updatedb -l 0 -U . -o $db
+
+if [ -w $dblist ]; then
+    tmplist=$(mktemp)
+    echo $(pwd)/$db | cat $dblist - | sort -u > $tmplist
+    mv $tmplist $dblist
+else
+    echo $(pwd)/$db > $dblist
+fi

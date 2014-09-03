@@ -1,0 +1,14 @@
+#!/bin/sh
+
+db=.location.db
+dir=$(pwd)
+
+until [ -r $dir/$db ]; do
+    if [ "x$dir" = "x/" ]; then
+        echo "location database not found" > /dev/fd/2
+        exit 1
+    fi
+    dir=$(dirname $dir)
+done
+
+locate -d $dir/$db -i "$@"
