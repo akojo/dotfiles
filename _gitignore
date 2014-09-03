@@ -2,3 +2,7 @@ tags
 cscope.*
 .*.swp
 .*.swo
+GPATH
+GRTAGS
+GSYMS
+GTAGS
