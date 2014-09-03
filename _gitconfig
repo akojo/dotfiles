@@ -20,6 +20,7 @@
   d = diff
   f = fetch
   fa = fetch --all
+  l = log --oneline --abbrev-commit --decorate=short --graph --topo-order
   pr = pull --rebase
   r = rebase
   ri = rebase --interactive
