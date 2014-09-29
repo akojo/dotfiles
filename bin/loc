@@ -11,4 +11,4 @@ until [ -r $dir/$db ]; do
     dir=$(dirname $dir)
 done
 
-locate -d $dir/$db -i "$@"
+locate -d $dir/$db -i "$@" | sed "s|$dir/*||"
