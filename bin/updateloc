@@ -1,5 +1,8 @@
 #!/bin/sh
 
+tmplist=$(mktemp)
+trap "rm -f $tmplist" INT TERM QUIT KILL STOP HUP EXIT 
+
 dblist=~/.location.db.list
 
 if [ ! -r $dblist ]; then
@@ -7,5 +10,13 @@ if [ ! -r $dblist ]; then
 fi
 
 for db in $(cat $dblist); do
-    updatedb -l 0 -U $(dirname $db) -o $db
+    if [ -w $db ]; then
+        updatedb -l 0 -U $(dirname $db) -o $db
+        echo $db >> $tmplist
+    fi
 done
+
+cmp -s $dblist $tmplist
+if [ $? -ne 0 ]; then
+    mv $tmplist $dblist
+fi
