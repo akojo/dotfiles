@@ -76,8 +76,15 @@ export ANDROID_NDK=~/lib/android-ndk-r8e
 export PATH=$PATH:~/tizen-sdk/tools/ide/bin
 
 # Enable some useful aliases
+case `uname -s` in
+  Linux)
+    alias ll='ls -lF --color' ;;
+  Darwin)
+    alias ll='ls -lFG' ;;
+  *)
+    alias ll='ls -lF'
+esac
 alias grep='grep --color=auto'
-alias ll='ls -lFG'
 alias gcal='gcal -K -s1 --iso-week-number=yes'
 alias mannerheim='ssh ssh.reaktor.fi'
 alias paasikivi='mosh paasikivi.reaktor.fi'
