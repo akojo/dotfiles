@@ -22,6 +22,7 @@
   fa = fetch --all
   l = log --oneline --abbrev-commit --decorate=short --graph --topo-order
   pr = pull --rebase
+  R = reset --hard
   r = rebase
   ri = rebase --interactive
   rc = rebase --continue
