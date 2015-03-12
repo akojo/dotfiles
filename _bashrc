@@ -22,14 +22,16 @@ fi
 [ -r /etc/bash_completion.d/git-prompt ] && source /etc/bash_completion.d/git-prompt
 
 # An improved cd to subdir
-a() {
-  dir=`qf -d "$@" | sed 1q`
-  echo "$dir"
-  cd "$dir"
+c() {
+  cd $(qf -d | selecta ${@:+-s "$@"})
 }
 
 f() {
-  qf -f "$@"
+  qf -f | selecta ${@:+-s "$@"}
+}
+
+v() {
+  vim `f "$@"`
 }
 
 # Make history even more usable
