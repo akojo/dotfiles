@@ -1,15 +1,17 @@
+(* vim: set ft=ocaml: *)
 (* Added by OPAM. *)
 let () =
   try Topdirs.dir_directory (Sys.getenv "OCAML_TOPLEVEL_PATH")
   with Not_found -> ()
 ;;
 
-(**
- * vim: ft=ocaml:
- *)
 #use "topfind"
 #thread
 #camlp4o
 #require "core.top"
 #require "core.syntax"
 open Core.Std
+
+(* custom utop prompt *)
+#require "lambda-term" ;;
+UTop.prompt := fst (React.S.create LTerm_text.( eval [ B_fg (LTerm_style.lyellow); S "> "])) ;;
