@@ -52,7 +52,7 @@ hi WildMenu	term=standout ctermfg=black ctermbg=yellow guifg=black guibg=gold2
 " syntax hi colors
 hi Comment	term=bold ctermfg=238 guifg=gray30
 hi PreProc	term=underline ctermfg=24 guifg=steelblue4
-hi Constant	term=underline ctermfg=124 guifg=firebrick3
+hi Constant	term=underline ctermfg=172 guifg=firebrick3
 hi Type		term=underline ctermfg=70 gui=none guifg=chartreuse3
 hi Statement	term=bold ctermfg=178 gui=none guifg=gold3
 hi Identifier	term=underline ctermfg=64 guifg=darkolivegreen4
@@ -61,11 +61,11 @@ hi Special	term=underline ctermfg=130 guifg=sienna
 hi Error	term=reverse ctermfg=gray ctermbg=red guifg=gray guibg=red3
 hi Todo		term=standout ctermfg=black ctermbg=yellow gui=bold guifg=gray10 guibg=yellow4
 hi Underlined	term=underline cterm=underline ctermfg=darkblue gui=underline guifg=slateblue
-hi Number	term=underline ctermfg=160 guifg=red2
+hi Number	term=underline ctermfg=darkred guifg=red2
+
 " syntax hi links
 hi link String		Constant
 hi link Character	Constant
-hi link Number		Constant
 hi link Boolean		Constant
 hi link Float		Number
 hi link Function	Identifier
