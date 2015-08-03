@@ -14,23 +14,28 @@
 [alias]
   a = add
   au = add -u
-  ci = commit
+  c = commit --verbose
+  ca = commit --verbose --amend
   co = checkout
+  C = clean -fd
   dc = diff --cached
   d = diff
   f = fetch
   fa = fetch --all
   l = log --oneline --abbrev-commit --decorate=short --graph --topo-order
+  L = log --pretty=format:'%C(auto)%h %C(red)%cr%C(reset) %C(cyan)%an%C(reset)%C(auto) %d %s' --graph --topo-order
+  p = push
+  pf = push --force
+  pt = push --tags
   pr = pull --rebase
   R = reset --hard
   r = rebase
+  ra = rebase --abort
   ri = rebase --interactive
   rc = rebase --continue
   root = rev-parse --show-toplevel
   sci = svn dcommit
   sr = svn rebase
-  st = status -s
+  s = status -s
 [push]
   default = upstream
-[help]
-  autocorrect = 1
