@@ -1,4 +1,0 @@
-cvs -q -z3
-checkout -P
-diff -u
-update -Pd
