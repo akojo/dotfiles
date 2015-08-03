@@ -9,6 +9,8 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
+set shell=/bin/sh
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect('bundle/{}')
 Helptags
