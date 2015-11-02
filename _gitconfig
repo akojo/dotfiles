@@ -11,5 +11,8 @@
   autocrlf = input
   eol = native
   safecrlf = true
+  editor = vim
 [push]
   default = upstream
+[rebase]
+  autostash = true
