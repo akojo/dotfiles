@@ -99,7 +99,8 @@ let g:clang_close_preview = 1
 let g:clang_auto_select = 1
 
 let g:clang_snippets = 1
-let g:clang_snippets_engine = 'ultisnips'
+let g:clang_conceal_snippets = 1
+let g:clang_trailing_placeholder = 1
 
 set concealcursor=inv
 set conceallevel=2
@@ -165,11 +166,6 @@ augroup END
 
 " Create the netrw hide list (dot-files, tempfiles and vim swap files)
 let g:netrw_list_hide='^\..*,.*~$,.*\.swp$'
-
-" Don't use space in front of colons in outliner
-let g:use_space_colon=0
-
-let vimclojure#WantNailgun = 1
 
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
