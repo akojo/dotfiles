@@ -1,13 +1,13 @@
 [user]
-  email = atte.kojo@reaktor.fi
-  name = Atte Kojo
+	email = atte.kojo@reaktor.com
+	name = Atte Kojo
 [color]
   diff = auto
   status = auto
   branch = auto
   ui = auto
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/akojo/.gitignore
   autocrlf = input
   eol = native
   safecrlf = true
@@ -16,3 +16,11 @@
   default = upstream
 [rebase]
   autostash = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/akojo/.stCommitMsg

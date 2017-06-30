@@ -150,8 +150,13 @@ autocmd FileType c,cpp,java runtime cscope_maps.vim
 " Ruby syntax folding is too damn slow
 autocmd FileType ruby setlocal foldmethod=manual
 
-autocmd FileType c,cpp,objc,objcpp call SuperTabSetDefaultCompletionType("<c-x><c-o>")
-autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+autocmd FileType c,cpp,objc,objcpp,ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+
+autocmd FileType ocaml nmap <Leader>*  <Plug>(MerlinSearchOccurrencesForward)<CR>
+autocmd FileType ocaml nmap <Leader>#  <Plug>(MerlinSearchOccurrencesBackward)<CR>
+autocmd FileType ocaml nmap <LocalLeader>r  <Plug>(MerlinRename)<CR>
+autocmd FileType ocaml nmap <LocalLeader>R  <Plug>(MerlinRenameAppend)<CR>
+
 autocmd FileType omlet call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 
 " When editing a file, always jump to the last known cursor position.
@@ -419,14 +424,57 @@ let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
 let s:opam_configuration = {}
 
 function! OpamConfOcpIndent()
-  let l:file = s:opam_share_dir . "/vim/syntax/ocp-indent.vim"
-  execute "source " . l:file
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfMerlin()
+  execute "set rtp+=" . s:opam_share_dir . "/merlin/vim"
+  execute "helptags " . s:opam_share_dir . "/merlin/vim/doc"
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "merlin"]
+let s:opam_check_cmdline = ['opam list --installed --short --safe --color=never'] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline, ' ')))
+for tool in s:opam_available_tools
+  call s:opam_configuration[tool]()
+endfor
+let s:opam_share_dir = system('opam config var share')
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfMerlin()
+  execute "set rtp+=" . s:opam_share_dir . "/merlin/vim"
+  execute "helptags " . s:opam_share_dir . "/merlin/vim/doc"
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "merlin"]
+let s:opam_check_cmdline = ['opam list --installed --short --safe --color=never'] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline, ' ')))
+for tool in s:opam_available_tools
+  call s:opam_configuration[tool]()
+endfor
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+let s:opam_share_dir = system("opam config var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
 endfunction
 let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
 
 function! OpamConfOcpIndex()
-  let l:file = s:opam_share_dir . "/vim/syntax/ocpindex.vim"
-  execute "source " . l:file
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
 endfunction
 let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
 
@@ -437,9 +485,17 @@ endfunction
 let s:opam_configuration['merlin'] = function('OpamConfMerlin')
 
 let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
-let s:opam_check_cmdline = ['opam list --installed --short --safe --color=never'] + s:opam_packages
-let s:opam_available_tools = split(system(join(s:opam_check_cmdline, ' ')))
-for tool in s:opam_available_tools
-  call s:opam_configuration[tool]()
+let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+for tool in s:opam_packages
+  " Respect package order (merlin should be after ocp-index)
+  if count(s:opam_available_tools, tool) > 0
+    call s:opam_configuration[tool]()
+  endif
 endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
+" ## added by OPAM user-setup for vim / ocp-indent ## 740666131813e84d80f4bfe8b9d5ae0b ## you can edit, but keep this line
+if count(s:opam_available_tools,"ocp-indent") == 0
+  source "/Users/akojo/.opam/system/share/vim/syntax/ocp-indent.vim"
+endif
+" ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line

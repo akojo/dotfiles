@@ -1,3 +1,9 @@
+(* Added by OPAM. *)
+let () =
+  try Topdirs.dir_directory (Sys.getenv "OCAML_TOPLEVEL_PATH")
+  with Not_found -> ()
+;;
+
 (* vim: set ft=ocaml: *)
 (* Added by OPAM. *)
 
@@ -9,8 +15,6 @@ open Core.Std
 #require "lambda-term" ;;
 UTop.prompt := fst (React.S.create LTerm_text.( eval [ B_fg (LTerm_style.lyellow); S "> "])) ;;
 
-(* ## added by OPAM user-setup for ocamltop / base ## d5b43c10ffbc4d9af79fea6e160104af ## you can edit, but keep this line *)
+(* ## added by OPAM user-setup for ocamltop / base ## 3ec62baf6f9c219ae06d9814069da862 ## you can edit, but keep this line *)
 #use "topfind";;
-#thread;;
-#camlp4o;;
 (* ## end of OPAM user-setup addition for ocamltop / base ## keep this line *)

@@ -7,3 +7,8 @@ GRTAGS
 GSYMS
 GTAGS
 .location.db
+typings/
+.vscode
+.clang_complete
+.merlin
+node_modules
