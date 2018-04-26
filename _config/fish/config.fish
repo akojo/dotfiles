@@ -4,7 +4,8 @@
 abbr g git
 abbr ga 'git add'
 abbr gau 'git add -u'
-abbr gC 'git clean -fd'
+abbr gb 'git branch'
+abbr gba 'git branch -a'
 abbr gc 'git commit --verbose'
 abbr gca 'git commit --verbose --amend'
 abbr gco 'git checkout'
@@ -27,6 +28,8 @@ abbr gxh 'git reset --hard'
 
 eval (thefuck --alias | tr '\n' ';')
 eval (opam config env)
-set -gx PATH {$HOME}/bin $PATH
+set -gx EDITOR vim
+set -gx PATH {$HOME}/bin {$HOME}/go/bin $PATH /Applications/Postgres.app/Contents/Versions/latest/bin
+set -gx TCLLIBPATH /usr/local/lib
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
