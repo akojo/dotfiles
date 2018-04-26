@@ -2,20 +2,20 @@
 	email = atte.kojo@reaktor.com
 	name = Atte Kojo
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
 [core]
 	excludesfile = /Users/akojo/.gitignore
-  autocrlf = input
-  eol = native
-  safecrlf = true
-  editor = vim
+	autocrlf = input
+	eol = native
+	safecrlf = true
+	editor = vim
 [push]
-  default = upstream
+	default = upstream
 [rebase]
-  autostash = true
+	autostash = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
