@@ -26,8 +26,8 @@ abbr gs 'git status --short'
 abbr gx 'git reset'
 abbr gxh 'git reset --hard'
 
-eval (thefuck --alias | tr '\n' ';')
-eval (opam config env)
+which thefuck >/dev/null; and eval (thefuck --alias | tr '\n' ';')
+which opam >/dev/null; and eval (opam config env)
 set -gx EDITOR vim
 set -gx PATH {$HOME}/bin {$HOME}/go/bin $PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 set -gx TCLLIBPATH /usr/local/lib
