@@ -417,51 +417,6 @@ hi x252_Grey82 ctermfg=252 guifg=#d0d0d0
 hi x253_Grey85 ctermfg=253 guifg=#dadada
 hi x254_Grey89 ctermfg=254 guifg=#e4e4e4
 hi x255_Grey93 ctermfg=255 guifg=#eeeeee
-" ## added by OPAM user-setup for vim / base ## 8a3125e39f347f6b9a1b167d8e564281 ## you can edit, but keep this line
-let s:opam_share_dir = system('opam config var share')
-let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
-
-let s:opam_configuration = {}
-
-function! OpamConfOcpIndent()
-  execute "set rtp+=" . s:opam_share_dir . "/ocp-indent/vim"
-endfunction
-let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
-
-function! OpamConfMerlin()
-  execute "set rtp+=" . s:opam_share_dir . "/merlin/vim"
-  execute "helptags " . s:opam_share_dir . "/merlin/vim/doc"
-endfunction
-let s:opam_configuration['merlin'] = function('OpamConfMerlin')
-
-let s:opam_packages = ["ocp-indent", "merlin"]
-let s:opam_check_cmdline = ['opam list --installed --short --safe --color=never'] + s:opam_packages
-let s:opam_available_tools = split(system(join(s:opam_check_cmdline, ' ')))
-for tool in s:opam_available_tools
-  call s:opam_configuration[tool]()
-endfor
-let s:opam_share_dir = system('opam config var share')
-let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
-
-let s:opam_configuration = {}
-
-function! OpamConfOcpIndent()
-  execute "set rtp+=" . s:opam_share_dir . "/ocp-indent/vim"
-endfunction
-let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
-
-function! OpamConfMerlin()
-  execute "set rtp+=" . s:opam_share_dir . "/merlin/vim"
-  execute "helptags " . s:opam_share_dir . "/merlin/vim/doc"
-endfunction
-let s:opam_configuration['merlin'] = function('OpamConfMerlin')
-
-let s:opam_packages = ["ocp-indent", "merlin"]
-let s:opam_check_cmdline = ['opam list --installed --short --safe --color=never'] + s:opam_packages
-let s:opam_available_tools = split(system(join(s:opam_check_cmdline, ' ')))
-for tool in s:opam_available_tools
-  call s:opam_configuration[tool]()
-endfor
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
 let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
