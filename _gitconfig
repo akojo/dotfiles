@@ -7,7 +7,7 @@
 	branch = auto
 	ui = auto
 [core]
-	excludesfile = /Users/akojo/.gitignore
+	excludesfile = ~/.gitignore
 	autocrlf = input
 	eol = native
 	safecrlf = true
@@ -16,11 +16,3 @@
 	default = upstream
 [rebase]
 	autostash = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/akojo/.stCommitMsg
