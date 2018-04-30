@@ -10,3 +10,6 @@ _config/gcloud/
 _config/heroku/
 _config/thefuck/
 _config/xbuild/
+_config/Code
+_config/dconf
+_config/gtk-2.0
