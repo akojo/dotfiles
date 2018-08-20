@@ -29,7 +29,7 @@ abbr gxh 'git reset --hard'
 which thefuck >/dev/null; and eval (thefuck --alias | tr '\n' ';')
 which opam >/dev/null; and eval (opam config env)
 set -gx EDITOR vim
-set -gx PATH {$HOME}/bin {$HOME}/go/bin $PATH /Applications/Postgres.app/Contents/Versions/latest/bin
+set -gx PATH {$HOME}/bin {$HOME}/go/bin $PATH
 set -gx TCLLIBPATH /usr/local/lib
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
