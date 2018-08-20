@@ -1,0 +1,111 @@
+#!/usr/bin/env tclsh
+
+namespace import ::tcl::mathfunc::*
+namespace import ::tcl::mathop::*
+
+namespace eval battery {
+  proc readFields {details} {
+    set lines [split $details "\n"]
+    set result {}
+
+    foreach line $lines {
+      set fields [split $line ":"]
+      if {[llength $fields] < 2} {
+        continue
+      }
+      set key [string trim [lindex $fields 0]] 
+      set value [string trim [string map {, .} [lindex $fields 1]]]
+      dict set result $key $value
+    }
+    return $result
+  }
+
+  proc number {str} {
+    return [lindex $str 0]
+  }
+
+  proc remainingTime {h sep} {
+    set hours [round [floor $h]]
+    set minutes [round [floor [* 60 [- $h $hours]]]]
+    return [format "\[%d${sep}%02d\}" $hours $minutes]
+  }
+
+  proc status {} {
+    if [catch {exec upower -e | grep BAT | sort} batteries] {
+      return -error "Failed to fetch battery info: $batteries"
+    }
+
+    if {[llength $batteries] < 1} {
+      return {}
+    }
+
+    set capacity 0
+    set rate 0
+    set remaining 0
+
+    foreach battery $batteries {
+      if [catch {exec upower -i $battery} details] {
+        return -error "Failed to fetch details for $battery"
+      }
+
+      set status [readFields $details]
+      set state [dict get $status state]
+
+      set capacity [+ $capacity [number [dict get $status energy-full]]]
+      set rate [+ $rate [number [dict get $status energy-rate]]]
+      set remaining [+ $remaining [number [dict get $status energy]]]
+    }
+
+    if {$state eq "fully-charged"} {
+      return "\[|||\}"
+    } elseif {$state eq "discharging"} {
+      set capacity [max $capacity 0.1]
+      return "\[[format "%d%%" [round [* [/ $remaining $capacity] 100]]]\}"
+    } elseif {$state eq "charging"} {
+      return "[remainingTime [/ [- $capacity $remaining] $rate] ~]"
+    } else {
+      return "\[-?-\}"
+    }
+  }
+}
+
+namespace eval network {
+  proc active {} {
+    if [catch {exec nmcli connection show --active} output] {
+      return -error "Failed to fetch network info: $output"
+    }
+    set fields [lindex [split $output "\n"] 1]
+    set type [lindex $fields end-1]
+    if {$type == "wifi"} {
+      return [lrange $fields 0 end-3]
+    } else {
+      return $type
+    }
+  }
+}
+
+namespace eval volume {
+  proc level {} {
+    if [catch {exec amixer -c0 get Master | tail -1} output] {
+      return -error "Failed to fetch network info: $output"
+    }
+    if {[lindex $output end] == "\[off\]"} {
+      return "\[-M-\]"
+    } else {
+      return [lindex $output end-2]
+    }
+  }
+}
+
+namespace eval date {
+  proc now {} {
+    return [clock format [clock seconds] -format {%a %b %e %H:%M:%S}]
+  }
+}
+
+while 1 {
+  set status [list [network::active] [volume::level] [battery::status] [date::now]]
+
+  exec xsetroot -name [join $status " | "]
+  after 1000
+}
