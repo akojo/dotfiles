@@ -71,16 +71,12 @@ namespace eval battery {
 
 namespace eval network {
   proc active {} {
-    if [catch {exec nmcli connection show --active} output] {
+    if [catch {exec nmcli connection show --order active:type} output] {
       return -error "Failed to fetch network info: $output"
     }
     set fields [lindex [split $output "\n"] 1]
     set type [lindex $fields end-1]
-    if {$type == "wifi"} {
-      return [lrange $fields 0 end-3]
-    } else {
-      return $type
-    }
+    return [lrange $fields 0 end-3]
   }
 }
 
