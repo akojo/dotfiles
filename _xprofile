@@ -1,0 +1,6 @@
+~/bin/status &
+dunst &
+/usr/lib/deja-dup/deja-dup-monitor &
+xautolock -locker slock -nowlocker slock -corners 00++ -cornerdelay 1 &
+setxkbmap -option ctrl:nocaps
+xsetroot -solid black
