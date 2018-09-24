@@ -30,6 +30,7 @@ which thefuck >/dev/null; and eval (thefuck --alias | tr '\n' ';')
 which opam >/dev/null; and eval (opam config env)
 set -gx EDITOR vim
 set -gx PATH {$HOME}/bin {$HOME}/go/bin $PATH
+set -gx MANPATH {$HOME}/share/man (manpath)
 set -gx TCLLIBPATH /usr/local/lib
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
