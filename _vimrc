@@ -87,7 +87,7 @@ nmap <Leader>G :Grep <C-R><C-W><CR>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'cd %s && qf -f'
+let g:ctrlp_user_command = 'cd %s && qfind -f'
 
 " Set useful clang_complete options
 let g:clang_complete_copen = 1
@@ -115,6 +115,7 @@ let g:SuperTabDefaultCompletionType = "context"
 "
 nmap <Leader>b :CtrlPBufTag<CR>
 nmap <Leader>B :CtrlPBufTagAll<CR>
+nmap <Leader>Q :CtrlPQuickfix<CR>
 
 nmap <Leader><Leader> :noh<cr>
 
@@ -131,7 +132,7 @@ map Q gq
 set mouse=
 
 set hlsearch
-colorscheme dante
+colorscheme sean
 
 syntax on
 filetype plugin indent on
