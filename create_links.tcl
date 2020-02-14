@@ -43,29 +43,3 @@ if ![file exists $bindir] {
 
 rc_install
 bin_install
-
-# Add a personal touch to the .profile file
-set profile [file join $env(HOME) ".profile"]
-set rcfile bin/shrc
-
-if {[file exists $profile] && [file exists $rcfile]} {
-    set header "# Do not delete: Added by create_links.tcl"
-    set fd [open $profile]
-    set contents [read $fd]
-    if {![regexp "(^|\n)$header" $contents]} {
-        set tmpfile "${profile}.tmp"
-        set include [list $header \
-            {if [ -f ~/bin/shrc ]; then}\
-            {    source ~/bin/shrc}\
-            {fi}\
-            {}\
-            $contents]
-
-        set fd [open $tmpfile w]
-        puts $fd [join $include "\n"]
-
-        file rename $profile "$profile.bak"
-        file rename $tmpfile $profile
-        file delete "$profile.bak"
-    }
-}
