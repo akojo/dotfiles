@@ -1,7 +1,6 @@
 setxkbmap us -variant altgr-intl -option ctrl:nocaps
 xsetroot -solid black
-xscreensaver -nosplash &
-xautolock -locker 'xscreensaver-command -lock' -nowlocker 'xscreensaver-command -lock' -corners 00++ -cornerdelay 1 &
+xautolock -locker slock -nowlocker slock -corners 00++ -cornerdelay 1 &
 ~/bin/status &
 dunst &
 [ -x /usr/lib/deja-dup/deja-dup/monitor ] && /usr/lib/deja-dup/deja-dup-monitor &
