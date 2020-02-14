@@ -12,3 +12,4 @@ typings/
 .clang_complete
 .merlin
 node_modules
+.noseids
