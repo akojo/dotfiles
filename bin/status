@@ -71,19 +71,21 @@ namespace eval battery {
 
 namespace eval network {
   proc active {} {
-    if [catch {exec nmcli connection show --order active:type} output] {
+    if [catch {exec nmcli connection show --active --order type} output] {
       return -error "Failed to fetch network info: $output"
     }
-    set fields [lindex [split $output "\n"] 1]
-    set type [lindex $fields end-1]
-    return [lrange $fields 0 end-3]
+    set connections {}
+    foreach conn [lrange [split $output "\n"] 1 end] {
+      lappend connections [lrange $conn 0 end-3]
+    }
+    return [join $connections ", "]
   }
 }
 
 namespace eval volume {
   proc level {} {
-    if [catch {exec amixer -c0 get Master | tail -1} output] {
-      return -error "Failed to fetch network info: $output"
+    if [catch {exec amixer -c1 get Master | tail -1} output] {
+      return -error "Failed to fetch volume level: $output"
     }
     if {[lindex $output end] == "\[off\]"} {
       return "\[-M-\]"
