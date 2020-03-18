@@ -41,3 +41,5 @@ set -ge AWS_ACCESS_KEY_ID
 set -ge AWS_SECRET_ACCESS_KEY
 set -ge AWS_SECURITY_TOKEN
 set -ge AWS_SESSION_TOKEN
+
+fish_ssh_agent
