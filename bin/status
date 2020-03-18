@@ -87,7 +87,7 @@ namespace eval network {
 
 namespace eval volume {
   proc level {} {
-    if [catch {exec amixer -c1 get Master | tail -1} output] {
+    if [catch {exec amixer get Master | tail -1} output] {
       return -error "Failed to fetch volume level: $output"
     }
     if {[lindex $output end] == "\[off\]"} {
