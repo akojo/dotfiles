@@ -25,6 +25,9 @@ namespace eval battery {
   }
 
   proc remainingTime {h sep} {
+    if {$h == Inf} {
+        return "\[-:--]\}"
+    }
     set hours [round [floor $h]]
     set minutes [round [floor [* 60 [- $h $hours]]]]
     return [format "\[%d${sep}%02d\}" $hours $minutes]
