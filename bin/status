@@ -105,9 +105,9 @@ namespace eval date {
 }
 
 while 1 {
-  set status [list [network::active] [volume::level] [battery::status] [date::now]]
+  set status [list [battery::status] [date::now]]
   set status [lsearch -all -inline $status ?*]
 
-  exec xsetroot -name " [join $status { | }] "
+  exec xsetroot -name "[join $status { | }]"
   after 1000
 }
