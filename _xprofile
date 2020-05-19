@@ -1,4 +1,4 @@
-setxkbmap us -variant altgr-intl -option ctrl:nocaps
+setxkbmap 'us(altgr-intl),fi' -option ctrl:nocaps,compose:multi,grp:menu_toggle,grp_led:scroll
 xsetroot -solid black
 xautolock -locker slock -nowlocker slock -corners 00++ -cornerdelay 1 &
 pasystray &
