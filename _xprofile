@@ -1,6 +1,6 @@
 setxkbmap 'us(altgr-intl),fi' -option ctrl:nocaps,compose:multi,grp:menu_toggle,grp_led:scroll
 xsetroot -solid black
-xautolock -locker slock -nowlocker slock -corners 00++ -cornerdelay 1 &
+xautolock -locker slock -nowlocker slock -time 5 &
 pasystray &
 blueman-applet &
 nm-applet &
