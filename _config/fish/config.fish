@@ -1,6 +1,3 @@
-
-
-# OPAM configuration
 abbr g git
 abbr ga 'git add'
 abbr gau 'git add -u'
@@ -26,20 +23,17 @@ abbr gs 'git status --short'
 abbr gx 'git reset'
 abbr gxh 'git reset --hard'
 
+# Prevent fish from importing these universal variables as globals
+set -e -g OP_SESSION_family_kojo
+
 which thefuck >/dev/null; and eval (thefuck --alias | tr '\n' ';')
 which opam >/dev/null; and eval (opam config env)
 set -gx EDITOR vim
 set -gx PATH {$HOME}/bin {$HOME}/go/bin {$HOME}/.local/bin $PATH /snap/bin
 set -gx MANPATH {$HOME}/share/man (env MANPATH= manpath)
 set -gx TCLLIBPATH /usr/local/lib
+set -gx DOCKER_BUILDKIT 1
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
-# WTF these keep appearing in my global variable list
-set -ge OP_SESSION_family_kojo
-set -ge AWS_ACCESS_KEY_ID
-set -ge AWS_SECRET_ACCESS_KEY
-set -ge AWS_SECURITY_TOKEN
-set -ge AWS_SESSION_TOKEN
 
 fish_ssh_agent
