@@ -7,3 +7,4 @@ nm-applet &
 dunst &
 $HOME/bin/status &
 [ -x /usr/lib/deja-dup/deja-dup/monitor ] && /usr/lib/deja-dup/deja-dup-monitor &
+[ -r ~/.xprofile.local ] && . ~/.xprofile.local
