@@ -28,9 +28,6 @@ checkout = git clone https://github.com/tpope/vim-fireplace
 [_vim/bundle/vim-fugitive]
 checkout = git clone https://github.com/tpope/vim-fugitive.git
 
-[_vim/bundle/vim-lawrencium]
-checkout = hg clone https://bitbucket.org/ludovicchabant/vim-lawrencium
-
 [_vim/bundle/vim-orgmode]
 checkout = git clone https://github.com/jceb/vim-orgmode
 
