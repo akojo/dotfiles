@@ -15,8 +15,6 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect('bundle/{}')
 Helptags
 
-let g:goog_user_conf = { 'langpair': 'jp|en', 'v_key': 'T', 'charset': 'utf-8' }
-
 " Add $HOME/_vim to runtimepath on windows to get proper colorscheme support
 if (has("win32"))
     set runtimepath+=~/_vim
@@ -39,9 +37,6 @@ set shiftwidth=2
 
 " Lines are 80 characters long
 set textwidth=80
-
-" Set some emacs/navicore-like options for indentation
-set cinoptions=:0,(0,j1,J1
 
 " Don't leave *~-files around
 set nobackup
@@ -78,8 +73,8 @@ if filereadable('GTAGS')
   cs add GTAGS
 endif
 
-" Use The Silver Searcher as the grep program
-set grepprg=ag
+" Use pt as grep program
+set grepprg=pt
 command -nargs=+ Grep execute 'silent lgrep! --nocolor --smart-case <args>' | lwindow | redraw!
 nmap <Leader>G :Grep <C-R><C-W><CR>
 
@@ -89,24 +84,8 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'cd %s && qfind -f'
 
-" Set useful clang_complete options
-let g:clang_complete_copen = 1
-let g:clang_hl_errors = 1
-let g:clang_periodic_quickfix = 0
-
-let g:clang_complete_macros = 1
-let g:clang_close_preview = 1
-let g:clang_auto_select = 1
-
-let g:clang_snippets = 1
-let g:clang_conceal_snippets = 1
-let g:clang_trailing_placeholder = 1
-
 set concealcursor=inv
 set conceallevel=2
-
-let g:clang_jumpto_declaration_key = '<Leader><C-]>'
-let g:clang_jumpto_back_key = '<Leader><C-T>'
 
 let g:SuperTabMappingTabLiteral = '<C-\>'
 let g:SuperTabDefaultCompletionType = "context"
@@ -141,24 +120,8 @@ filetype plugin indent on
 augroup vimrcEx
 au!
 
-autocmd BufRead,BufNewFile *.ijs setfiletype j
 autocmd FileType text setlocal spell
 autocmd FileType help setlocal nospell
-autocmd FileType c,cpp,java,objc setlocal shiftwidth=4
-autocmd FileType c,cpp,objc,objcpp nmap <buffer> <Leader>q :call g:ClangUpdateQuickFix()<CR>
-
-autocmd FileType c,cpp,java runtime cscope_maps.vim
-" Ruby syntax folding is too damn slow
-autocmd FileType ruby setlocal foldmethod=manual
-
-autocmd FileType c,cpp,objc,objcpp,ocaml call SuperTabSetDefaultCompletionType("<c-x><c-o>")
-
-autocmd FileType ocaml nmap <Leader>*  <Plug>(MerlinSearchOccurrencesForward)<CR>
-autocmd FileType ocaml nmap <Leader>#  <Plug>(MerlinSearchOccurrencesBackward)<CR>
-autocmd FileType ocaml nmap <LocalLeader>r  <Plug>(MerlinRename)<CR>
-autocmd FileType ocaml nmap <LocalLeader>R  <Plug>(MerlinRenameAppend)<CR>
-
-autocmd FileType omlet call SuperTabSetDefaultCompletionType("<c-x><c-o>")
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -418,36 +381,3 @@ hi x252_Grey82 ctermfg=252 guifg=#d0d0d0
 hi x253_Grey85 ctermfg=253 guifg=#dadada
 hi x254_Grey89 ctermfg=254 guifg=#e4e4e4
 hi x255_Grey93 ctermfg=255 guifg=#eeeeee
-" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
-let s:opam_share_dir = system("opam config var share")
-let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
-
-let s:opam_configuration = {}
-
-function! OpamConfOcpIndent()
-  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
-endfunction
-let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
-
-function! OpamConfOcpIndex()
-  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
-endfunction
-let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
-
-function! OpamConfMerlin()
-  let l:dir = s:opam_share_dir . "/merlin/vim"
-  execute "set rtp+=" . l:dir
-endfunction
-let s:opam_configuration['merlin'] = function('OpamConfMerlin')
-
-let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
-let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
-let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
-for tool in s:opam_packages
-  " Respect package order (merlin should be after ocp-index)
-  if count(s:opam_available_tools, tool) > 0
-    call s:opam_configuration[tool]()
-  endif
-endfor
-" ## end of OPAM user-setup addition for vim / base ## keep this line
-" ## added by OPAM user-setup for vim / ocp-indent ## 740666131813e84d80f4bfe8b9d5ae0b ## you can edit, but keep this line

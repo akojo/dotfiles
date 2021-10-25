@@ -1,29 +1,8 @@
-[_vim/bundle/Google-translator]
-checkout = git clone https://github.com/vim-scripts/Google-translator
-
-[_vim/bundle/clang_complete]
-checkout = git clone https://github.com/Rip-Rip/clang_complete.git
-
 [_vim/bundle/ctrlp.vim]
 checkout = git clone https://github.com/kien/ctrlp.vim.git
 
-[_vim/bundle/ocp-indent]
-checkout = git clone https://github.com/OCamlPro/ocp-indent
-
 [_vim/bundle/supertab]
 checkout = git clone https://github.com/ervandew/supertab.git
-
-[_vim/bundle/ultisnips]
-checkout = git clone https://github.com/SirVer/ultisnips.git
-
-[_vim/bundle/vim-classpath]
-checkout = git clone https://github.com/tpope/vim-classpath.git
-
-[_vim/bundle/vim-clojure-static]
-checkout = git clone https://github.com/guns/vim-clojure-static.git
-
-[_vim/bundle/vim-fireplace]
-checkout = git clone https://github.com/tpope/vim-fireplace
 
 [_vim/bundle/vim-fugitive]
 checkout = git clone https://github.com/tpope/vim-fugitive.git
@@ -42,9 +21,6 @@ checkout = git clone https://github.com/tpope/vim-sleuth
 
 [_vim/bundle/vim-speeddating]
 checkout = git clone https://github.com/tpope/vim-speeddating
-
-[_vim/bundle/swift.vim]
-checkout = git clone https://github.com/keith/swift.vim
 
 [_vim/bundle/vim-vinegar]
 checkout = git clone https://github.com/tpope/vim-vinegar.git
