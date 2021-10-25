@@ -26,19 +26,10 @@ abbr gxh 'git reset --hard'
 # Prevent fish from importing these universal variables as globals
 set -e -g OP_SESSION_family_kojo
 
-which thefuck >/dev/null; and eval (thefuck --alias | tr '\n' ';')
-which opam >/dev/null; and eval (opam config env)
 set -gx EDITOR vim
-set -gx PATH {$HOME}/bin {$HOME}/go/bin {$HOME}/.local/bin $PATH /snap/bin
+set -gx PATH {$HOME}/bin {$HOME}/.local/bin $PATH /snap/bin
 set -gx MANPATH {$HOME}/share/man (env MANPATH= manpath)
 set -gx TCLLIBPATH /usr/local/lib
 set -gx DOCKER_BUILDKIT 1
-
-set -gx LUA_PATH '/home/atte/.luarocks/share/lua/5.3/?.lua;/home/atte/.luarocks/share/lua/5.3/?/init.lua;/usr/local/share/lua/5.3/?.lua;/usr/local/share/lua/5.3/?/init.lua;/usr/local/lib/lua/5.3/?.lua;/usr/local/lib/lua/5.3/?/init.lua;/usr/share/lua/5.3/?.lua;/usr/share/lua/5.3/?/init.lua;./?.lua;./?/init.lua'
-set -gx LUA_CPATH '/home/atte/.luarocks/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/?.so;/usr/lib/x86_64-linux-gnu/lua/5.3/?.so;/usr/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/loadall.so;./?.so'
-
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
-test -e ~/google-cloud-sdk/path.fish.inc; and source ~/google-cloud-sdk/path.fish.inc
 
 fish_ssh_agent
