@@ -16,3 +16,5 @@
 	default = upstream
 [rebase]
 	autostash = true
+[pull]
+	ff = only
