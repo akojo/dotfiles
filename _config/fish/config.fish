@@ -10,7 +10,6 @@ abbr gd 'git diff'
 abbr gdc 'git diff --cached'
 abbr gf 'git fetch'
 abbr gfa 'git fetch --all'
-abbr gh 'git push heroku master'
 abbr gl 'git log --pretty=format:\'%C(auto)%h %C(red)%cr%C(reset) %C(cyan)%an%C(reset)%C(auto) %d %s\' --graph --topo-order'
 abbr gm 'git push origin master'
 abbr gp 'git push'
@@ -27,9 +26,13 @@ abbr gxh 'git reset --hard'
 set -e -g OP_SESSION_family_kojo
 
 set -gx EDITOR vim
-set -gx PATH {$HOME}/bin {$HOME}/.local/bin $PATH /snap/bin
+set -gx PATH {$HOME}/bin {$HOME}/.local/bin $PATH /snap/bin {$HOME}/.dotnet/tools
 set -gx MANPATH {$HOME}/share/man (env MANPATH= manpath)
 set -gx TCLLIBPATH /usr/local/lib
 set -gx DOCKER_BUILDKIT 1
 
 fish_ssh_agent
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/atte/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
